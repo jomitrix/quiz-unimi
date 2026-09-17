@@ -470,7 +470,8 @@
                 </div>
                 <div class="w-50">
                     <div class="progress">
-                        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        <div id="progressBarCorrect" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                        <div id="progressBarWrong" class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
@@ -1247,7 +1248,22 @@
             el("qText").innerHTML = q.text;
             el("quizBadge").textContent = q.quizTitle;
             el("progressLabel").textContent = `Domanda ${state.idx + 1} / ${state.order.length}`;
-            el("progressBar").style.width = `${((state.idx + 1) / state.order.length) * 100}%`;
+            
+            // Calcolo percentuali corrette/sbagliate per la progress bar
+            const totalQ = state.order.length;
+            let correctCount = 0;
+            let wrongCount = 0;
+
+            Object.keys(state.graded).forEach(qId => {
+                if (state.graded[qId].correct) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            });
+
+            el("progressBarCorrect").style.width = `${(correctCount / totalQ) * 100}%`;
+            el("progressBarWrong").style.width = `${(wrongCount / totalQ) * 100}%`;
 
             const multiple = (q.correctIndexes.length > 1);
             const choicesDiv = el("choices");
@@ -1779,11 +1795,20 @@
             const q = getCurrent();
             const g = gradeQuestion(q);
             showGradeOnUI(q, g);
-            updateNavigationBar(); // Aggiorna la barra per mostrare se la risposta è corretta/sbagliata
-            // Mantieni la visualizzazione per 1 secondo prima di permettere altre azioni
-            setTimeout(() => {
-                // Potresti aggiungere qui logica aggiuntiva se necessaria
-            }, 1000);
+            updateNavigationBar();
+
+            // Aggiorna subito la progress bar verde/rossa
+            const totalQ = state.order.length;
+            let correctCount = 0;
+            let wrongCount = 0;
+            Object.keys(state.graded).forEach(qId => {
+                if (state.graded[qId].correct) correctCount++;
+                else wrongCount++;
+            });
+            el("progressBarCorrect").style.width = `${(correctCount / totalQ) * 100}%`;
+            el("progressBarWrong").style.width = `${(wrongCount / totalQ) * 100}%`;
+
+            setTimeout(() => {}, 1000);
         });
 
         // Event listener per la selezione del dataset
