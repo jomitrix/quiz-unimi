@@ -1220,18 +1220,17 @@
                 // Reset classi
                 button.classList.remove("current", "answered", "correct", "wrong");
 
-                // Aggiungi classe current per la domanda attuale
+                // Domanda attuale
                 if (index === state.idx) {
                     button.classList.add("current");
                 }
 
-                // Controlla se la domanda è stata risposta
+                // Se risposta presente
                 if (state.answers[questionId] && state.answers[questionId].size > 0) {
                     button.classList.add("answered");
 
-                    // Se è stata anche controllata e l'opzione "mostra errori" è attiva
+                    // Se valutata e l'opzione è attiva, mostra verde/rosso
                     if (state.graded[questionId] !== undefined && showErrors) {
-                        // Rimuovi "answered" e aggiungi "correct" o "wrong"
                         button.classList.remove("answered");
                         if (state.graded[questionId].correct) {
                             button.classList.add("correct");
@@ -1455,8 +1454,11 @@
             const missingIndexes = correct.filter(i => !selSet.has(i));
             const isCorrect = wrongIndexes.length === 0 && missingIndexes.length === 0;
 
-            state.graded[q.id] = { correct: isCorrect, wrongIndexes, missingIndexes };
-            return state.graded[q.id];
+            if (selected.length > 0) {
+                state.graded[q.id] = { correct: isCorrect, wrongIndexes, missingIndexes };
+                return state.graded[q.id];
+            }
+            return { correct: false, wrongIndexes: [], missingIndexes: [] };
         }
 
         function showGradeOnUI(q, g) {
@@ -1778,17 +1780,15 @@
             if (state.idx > 0) { state.idx -= 1; renderCurrent(); }
         });
         el("btnNext").addEventListener("click", () => {
+            const q = getCurrent();
+            if (state.answers[q.id] && state.answers[q.id].size > 0) {
+                const g = gradeQuestion(q);
+                showGradeOnUI(q, g);
+            }
             if (state.idx === state.order.length - 1) {
-                // final click is "Consegna" – grade current then finish
-                const q = getCurrent();
-                const g = gradeQuestion(q);
-                showGradeOnUI(q, g);
-                setTimeout(finishRun, 0); // Aumentato a 1 secondo
+                setTimeout(finishRun, 0);
             } else {
-                const q = getCurrent();
-                const g = gradeQuestion(q);
-                showGradeOnUI(q, g);
-                setTimeout(nextOrFinish, 0); // Aumentato a 1 secondo
+                setTimeout(nextOrFinish, 0);
             }
         });
         el("btnCheck").addEventListener("click", () => {
