@@ -522,15 +522,15 @@
                                 <h6 class="text-primary mb-2"><i class="fas fa-mouse-pointer me-1"></i> Navigazione</h6>
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <span>Domanda precedente</span>
-                                    <kbd class="bg-secondary">P</kbd>
+                                    <kbd class="bg-secondary">J</kbd>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span>Domanda successiva</span>
-                                    <kbd class="bg-secondary">N</kbd>
+                                    <span>Controlla risposta</span>
+                                    <kbd class="bg-secondary">K</kbd>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span>Controlla risposta</span>
-                                    <kbd class="bg-secondary">C</kbd>
+                                    <span>Domanda successiva</span>
+                                    <kbd class="bg-secondary">L</kbd>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -1793,48 +1793,44 @@
         });
 
         // Event listener per il tasto Invio
+        // Event listener per scorciatoie da tastiera (J: Precedente, K: Check, L: Successivo)
         document.addEventListener("keydown", (e) => {
             // Verifica che non ci siano modificatori premuti (ctrl, alt, shift, meta)
             if (e.ctrlKey || e.altKey || e.shiftKey || e.metaKey) {
-                return; // Non fare nulla se ci sono modificatori
+                return;
             }
 
-            if (e.key === "n" && state.mode === "running") {
+            const key = e.key.toLowerCase();
+
+            if (key === "j" && state.mode === "running") {
                 e.preventDefault();
-                // Simula il click del bottone "Avanti/Consegna"
-                el("btnNext").click();
-            };
-            if (e.key === "c" && state.mode === "running") {
-                e.preventDefault();
-                // Simula il click del bottone "Controlla"
-                el("btnCheck").click();
-            };
-            if (e.key === "p" && state.mode === "running") {
-                e.preventDefault();
-                // Simula il click del bottone "Indietro"
                 el("btnPrev").click();
             }
-            if (e.key === "1" && state.mode === "running") {
+            if (key === "k" && state.mode === "running") {
                 e.preventDefault();
-                // Seleziona la prima scelta
+                el("btnCheck").click();
+            }
+            if (key === "l" && state.mode === "running") {
+                e.preventDefault();
+                el("btnNext").click();
+            }
+            if (key === "1" && state.mode === "running") {
+                e.preventDefault();
                 const firstChoice = document.querySelector(".choice input");
                 if (firstChoice) firstChoice.click();
             }
-            if (e.key === "2" && state.mode === "running") {
+            if (key === "2" && state.mode === "running") {
                 e.preventDefault();
-                // Seleziona la seconda scelta
                 const secondChoice = document.querySelectorAll(".choice input")[1];
                 if (secondChoice) secondChoice.click();
             }
-            if (e.key === "3" && state.mode === "running") {
+            if (key === "3" && state.mode === "running") {
                 e.preventDefault();
-                // Seleziona la terza scelta
                 const thirdChoice = document.querySelectorAll(".choice input")[2];
                 if (thirdChoice) thirdChoice.click();
             }
-            if (e.key === "4" && state.mode === "running") {
+            if (key === "4" && state.mode === "running") {
                 e.preventDefault();
-                // Seleziona la quarta scelta
                 const fourthChoice = document.querySelectorAll(".choice input")[3];
                 if (fourthChoice) fourthChoice.click();
             }
