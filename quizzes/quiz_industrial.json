@@ -2,7 +2,7 @@
   "quizzes": [
     {
       "id": "quiz1",
-      "title": "Industrial Systems - Parte 1 (Fondamenti)",
+      "title": "Parte 1 (Fondamenti)",
       "questions": [
         {
           "id": "quiz1_q1",
@@ -321,7 +321,7 @@
     },
     {
       "id": "quiz2",
-      "title": "Industrial Systems - Parte 2 (Modelli)",
+      "title": "Parte 2 (Modelli)",
       "questions": [
         {
           "id": "quiz2_q31",
@@ -661,7 +661,7 @@
     },
     {
       "id": "quiz3",
-      "title": "Industrial Systems - Parte 3 (Vision & Hardware)",
+      "title": "Parte 3 (Vision & Hardware)",
       "questions": [
         {
           "id": "quiz3_q61",
@@ -1019,7 +1019,7 @@
     },
     {
       "id": "quiz4",
-      "title": "Industrial Systems - Parte 4 (Metodologia)",
+      "title": "Parte 4 (Metodologia)",
       "questions": [
         {
           "id": "quiz4_q91",
@@ -1381,7 +1381,7 @@
     },
     {
       "id": "quiz5",
-      "title": "Industrial Systems - Parte 5 (Conclusione)",
+      "title": "Parte 5 (Conclusione)",
       "questions": [
         {
           "id": "quiz5_q121",

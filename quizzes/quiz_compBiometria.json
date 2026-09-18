@@ -2,7 +2,7 @@
   "quizzes": [
     {
       "id": "quiz1",
-      "title": "Complementi di biometria",
+      "title": "Quiz - Parte 1",
       "questions": [
         {
           "id": "quiz1_q1",
@@ -563,7 +563,7 @@
     },
     {
       "id": "quiz2",
-      "title": "Complementi di biometria",
+      "title": "Quiz - Parte 2",
       "questions": [
         {
           "id": "quiz2_q1",
@@ -1106,7 +1106,7 @@
     },
     {
       "id": "quiz3",
-      "title": "Complementi di biometria - Parte 3",
+      "title": "Quiz - Parte 3",
       "questions": [
         {
           "id": "quiz3_q1",
@@ -1730,7 +1730,7 @@
     },
     {
       "id": "quiz4",
-      "title": "Complementi di biometria - Parte 4",
+      "title": "Quiz - Parte 4",
       "questions": [
         {
           "id": "quiz4_q1",
@@ -2339,7 +2339,7 @@
     },
     {
       "id": "quiz5",
-      "title": "Complementi di biometria - Parte 5",
+      "title": "Quiz - Parte 5",
       "questions": [
         {
           "id": "quiz5_q1",
@@ -2966,7 +2966,7 @@
     },
     {
       "id": "quiz6",
-      "title": "Complementi di biometria - Parte 6",
+      "title": "Quiz - Parte 6",
       "questions": [
         {
           "id": "quiz6_q1",
@@ -3533,7 +3533,7 @@
     },
     {
       "id": "quiz7",
-      "title": "Complementi di biometria - Parte 7",
+      "title": "Quiz - Parte 7",
       "questions": [
         {
           "id": "quiz7_q1",
@@ -4040,7 +4040,7 @@
     },
     {
       "id": "quiz8",
-      "title": "Complementi di biometria - Parte 8",
+      "title": "Quiz - Parte 8",
       "questions": [
         {
           "id": "quiz8_q1",
@@ -4580,7 +4580,7 @@
     },
     {
       "id": "quiz9",
-      "title": "Complementi di biometria - Parte 9",
+      "title": "Quiz - Parte 9",
       "questions": [
         {
           "id": "quiz9_q1",
@@ -5129,7 +5129,7 @@
     },
     {
       "id": "quiz10",
-      "title": "Complementi di biometria - Parte 10",
+      "title": "Quiz - Parte 10",
       "questions": [
         {
           "id": "quiz10_q1",
@@ -5645,7 +5645,7 @@
     },
     {
       "id": "quiz11",
-      "title": "Complementi di biometria - Parte 11",
+      "title": "Quiz - Parte 11",
       "questions": [
         {
           "id": "quiz11_q1",
@@ -6158,7 +6158,7 @@
     },
     {
       "id": "quiz12",
-      "title": "Complementi di biometria - Parte 12",
+      "title": "Quiz - Parte 12",
       "questions": [
         {
           "id": "quiz12_q1",
@@ -6722,7 +6722,7 @@
     },
     {
       "id": "quiz13",
-      "title": "Complementi di biometria - Parte 13",
+      "title": "Quiz - Parte 13",
       "questions": [
         {
           "id": "quiz13_q1",

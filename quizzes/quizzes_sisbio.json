@@ -4540,7 +4540,7 @@
         },
         {
           "id": "quiz6_q12",
-          "text": "Considerando la figura riportata, quale affermazione è corretta?<br><br><img src='media/img_000C_0000_00_1.jpg' alt='Figura del quiz' style='max-width: 100%; height: auto; margin: 10px 0;'>",
+          "text": "Considerando la figura riportata, quale affermazione è corretta?<br><br><img src='quizzes/media/img_000C_0000_00_1.jpg' alt='Figura del quiz' style='max-width: 100%; height: auto; margin: 10px 0;'>",
           "choices": [
             {
               "text": "L'EER del sistema A è MINORE dell'EER del sistema B"
