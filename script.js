@@ -745,6 +745,7 @@ function updateProgressBar() {
     const totalQ = state.order.length;
     let correctCount = 0;
     let wrongCount = 0;
+    const showErrors = el("showErrorsCheckbox").checked;
 
     Object.keys(state.graded).forEach(qId => {
         if (state.graded[qId].correct) {
@@ -754,8 +755,13 @@ function updateProgressBar() {
         }
     });
 
-    el("progressBarCorrect").style.width = `${(correctCount / totalQ) * 100}%`;
-    el("progressBarWrong").style.width = `${(wrongCount / totalQ) * 100}%`;
+    const correctBar = el("progressBarCorrect");
+    const wrongBar = el("progressBarWrong");
+
+    correctBar.classList.toggle("bg-success", showErrors);
+    correctBar.classList.toggle("bg-primary", !showErrors);
+    correctBar.style.width = `${((showErrors ? correctCount : correctCount + wrongCount) / totalQ) * 100}%`;
+    wrongBar.style.width = `${(showErrors ? wrongCount : 0) / totalQ * 100}%`;
 }
 
 function smartMobilePosition() {
@@ -1088,6 +1094,7 @@ el("datasetSelect").addEventListener("change", (e) => {
 
 el("showErrorsCheckbox").addEventListener("change", () => {
     updateNavigationBar();
+    updateProgressBar();
 });
 
 document.addEventListener("keydown", (e) => {
