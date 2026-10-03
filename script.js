@@ -103,6 +103,11 @@ async function loadAvailableDatasets() {
             name: "quiz_industrial.json",
             title: "Industrial Systems",
             description: "Domande su industrial systems."
+        },
+        {
+            name: "aspetti_cybersec.json",
+            title: "Aspetti org. e gest. della cybersecurity (F680S-)",
+            description: "Domande su Aspetti organizzativi e gestionali della cybersecurity"
         }
     ];
 
